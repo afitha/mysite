@@ -1,0 +1,14 @@
+{% extends 'landingpage.html' %}
+{% block content %}
+    {% for i in pros %}
+       <a href="/home/pro/{{i.id}}">{{i.name}}</a> <br>
+       <br>
+    {% endfor %}
+    <form action="">
+        <input type="button" value="Back" >
+    </form>
+    
+{% endblock %}
+
+
+

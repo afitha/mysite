@@ -1,0 +1,15 @@
+{% extends 'landingpage.html' %}
+{% block content %}
+{% for i in product %}
+    ID:-{{i.id}}<br>
+    Name:-{{i.name}}<br>
+    Quantity:-{{i.qty}}<br>
+    Price:-{{i.price}}<br>
+    Total amt:-{{i.total}}<br>
+    <br>
+{% endfor %}
+My total cart amount:-{{fullamt}}
+{% endblock %}
+
+
+    

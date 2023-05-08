@@ -1,0 +1,13 @@
+.header{
+    color: blue;
+    font-family: 'Lobster';
+}
+.intro_icon
+{
+    width: 100px;
+    height: 100px;
+}
+.intro_icon img
+{
+    max-width: 100%;
+}

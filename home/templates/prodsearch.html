@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function getproddata(){
+        var xhttp= new XMLHttpRequest()
+            xhttp.open('GET','/home/getpro/'+document.getElementById('keyword').value,true)
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 & this.status==200){
+                    var data=JSON.parse(this.responseText)
+                    str='<table>'
+                    for(x of data.produ){
+                        str=str+'<tr>'
+                        str=str+'<td>'+(x.id)+'<td>'
+                        str=str+'<td>'+(x.name)+'<td>'
+                        str=str+'<td>'+(x.price)+'<td>'
+
+                    }
+                    str=str+'</table>'
+                    document.getElementById('data').innerHTML=str
+                    
+                }
+            };
+            xhttp.send();
+        }
+</script>
+<script>
+    function thechart(){
+        const labels = ['January','February','March','April','May','June'];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+        const myChart = new Chart(document.getElementById('myChart'),config);
+    }
+    
+
+</script>
+<body>
+    <input type="text" name="keyword" id="keyword">
+    <input type="button" value="search" onclick="getproddata()">
+    <input type="button" value="Drawchart" onclick="thechart()">
+    <div id="data"></div>
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+       
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function getproddata(){
+        var xhttp= new XMLHttpRequest()
+        xhttp.open('GET','/home/jsondata',true)
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4 & this.status==200){
+                var data=JSON.parse(this.responseText)
+                console.log(data)
+                for(x of data.new){
+                    console.log(x.id)
+                    console.log(x.name)
+                    console.log(x.price)
+                }
+            }
+        };
+        xhttp.send();
+    }
+</script>
+<body>
+    <input type="text" name="keyword" id="keyword">
+    <input type="button" value="search" onclick="getproddata()">
+    <div id="data"></div>
+</body>
+</html> -->

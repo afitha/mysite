@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       <!-- <h1>hi welcome to Home !!</h1>
+        <h1>{{catagory}}</h1>
+        {% for i in products %}
+        {% for k,v in i.items %}
+            <ul>
+            {{k}} -- {{v}}
+            </ul>
+        {% endfor %}
+        {% endfor %} -->
+
+        <h1>hi welcome Home!!</h1>
+        <h1>{{catagory}}</h1>
+        <ul>
+            {% for i in products %}
+            <table border="1">
+                <br>
+                {% for k,v in i.items %}
+                <tr>
+                <td>{{k}}</td>
+                <td>
+                {% if k == "Features" %}
+                    <ol>
+                        {% for f in v %}
+                        <li>{{f}}</li>
+                        {% endfor %}
+                    </ol>
+                {% else %}
+                    {{v}}
+                </td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        {% endfor %}
+            </table>
+        </ul>
+    </body>
+</html>
+
